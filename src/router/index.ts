@@ -1,3 +1,4 @@
+import Projects from "@/pages/projects/Projects.vue";
 import Home from "@/pages/home/Home.vue";
 import { createRouter, createWebHashHistory } from "vue-router";
 
@@ -11,6 +12,11 @@ export const router = createRouter({
       path: '/',
       name: 'home',
       component: Home
+    },
+    {
+      path: '/projects',
+      name: 'projects',
+      component: Projects
     },
     {
       path: '/:patchMatch(.*)',
