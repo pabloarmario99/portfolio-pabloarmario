@@ -1,9 +1,10 @@
-import Projects from "@/pages/projects/Projects.vue";
 import Home from "@/pages/home/Home.vue";
-import { createRouter, createWebHashHistory } from "vue-router";
-import About from "@/pages/about/About.vue";
-import Contact from "@/pages/contact/Contact.vue";
+import About from "@/pages/visitor/About.vue";
+import Contact from "@/pages/visitor/Contact.vue";
+import Layout from "@/pages/visitor/Layout.vue";
+import Projects from "@/pages/visitor/Projects.vue";
 
+import { createRouter, createWebHashHistory } from "vue-router";
 
 
 export const router = createRouter({
@@ -16,19 +17,42 @@ export const router = createRouter({
       component: Home
     },
     {
-      path: '/projects',
-      name: 'projects',
-      component: Projects
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
-    },
-    {
-      path: '/contact',
-      name: 'contact',
-      component: Contact
+      path: '/visitor',
+      children: [
+        {
+          path: 'projects',
+          component: Layout,
+          children: [
+            {
+             path: '',
+            name: 'visitor-projects',
+            component: Projects 
+            }
+          ]
+        },
+        {
+          path: 'about',
+          component: Layout,
+          children: [
+            {
+             path: '',
+            name: 'visitor-about',
+            component: About 
+            }
+          ]
+        },
+        {
+          path: 'contact',
+          component: Layout,
+          children: [
+            {
+             path: '',
+            name: 'visitor-contact',
+            component: Contact
+            }
+          ]
+        },
+      ]
     },
     {
       path: '/:patchMatch(.*)',
