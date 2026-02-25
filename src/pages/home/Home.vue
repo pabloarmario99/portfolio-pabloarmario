@@ -1,13 +1,27 @@
 <script setup lang="ts">
-import Button from '@/components/ui/button/Button.vue';
+
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center min-h-screen">
-        <h1 class="mb-1 font-bold">Portfolio: Argi</h1>
-        <Button class="mt-1">
-            <RouterLink to="projects">Projects</RouterLink>
-        </Button>
+    <div class="flex items-center gap-2 mt-2 ml-2">
+        <h1 class="font-bold">Portfolio: Argi</h1>
+        <div class="flex gap-2">
+            <RouterLink to="projects" class="bg-black text-white px-2 py-1 hover:bg-gray-900">
+                Projects
+            </RouterLink>
+        
+        
+            <RouterLink to="about" class="bg-black text-white px-1 py-1 hover:bg-gray-900">
+                About
+            </RouterLink>
+        
+    
+            <RouterLink to="contact" class="bg-black text-white px-2 py-1 hover:bg-gray-900">
+                Contact
+            </RouterLink>
+    
+        </div>
+        
     </div>
 </template>
 
