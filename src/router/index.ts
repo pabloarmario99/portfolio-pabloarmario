@@ -1,6 +1,8 @@
 import Home from "@/pages/home/Home.vue";
 import About from "@/pages/visitor/About.vue";
 import Contact from "@/pages/visitor/Contact.vue";
+import Design from "@/pages/visitor/Design.vue";
+import Godnews from "@/pages/visitor/Godnews.vue";
 import Layout from "@/pages/visitor/Layout.vue";
 import Projects from "@/pages/visitor/Projects.vue";
 
@@ -27,7 +29,17 @@ export const router = createRouter({
              path: '',
             name: 'visitor-projects',
             component: Projects 
-            }
+            },
+            {
+             path: 'godnews!',
+            name: 'god-news!',
+            component: Godnews 
+            },
+            {
+             path: ':id',
+            name: 'designs-details',
+            component: Design 
+            },
           ]
         },
         {
