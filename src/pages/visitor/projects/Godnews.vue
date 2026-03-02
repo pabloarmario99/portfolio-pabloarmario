@@ -4,14 +4,9 @@
 </script>
 
 <template>
-    <header>
+    <header class="m-2">
 <h1>God News! Demon's dreams</h1>
     </header>
-    
-
-    <main class="ml-10 bg-gray-100">
-            <RouterView/>
-        </main>
 </template>
 
 

@@ -4,7 +4,7 @@
 
 <template>
     <div>
-<h1>About</h1>
+<h1 class="m-2">Acerca de</h1>
     </div>
 </template>
 

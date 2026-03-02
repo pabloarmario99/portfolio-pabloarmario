@@ -3,6 +3,7 @@ import About from "@/pages/visitor/About.vue";
 import Contact from "@/pages/visitor/Contact.vue";
 import Layout from "@/pages/visitor/Layout.vue";
 import Godnews from "@/pages/visitor/projects/Godnews.vue";
+import Octubre from "@/pages/visitor/projects/Octubre.vue";
 import Projects from "@/pages/visitor/projects/Projects.vue";
 
 import { createRouter, createWebHashHistory } from "vue-router";
@@ -33,6 +34,11 @@ export const router = createRouter({
             path: 'godnews!',
             name: 'project-godnews!',
             component: Godnews,
+            },
+            {
+            path: '29octubre',
+            name: 'project-29octubre',
+            component: Octubre,
             },
             
           ]
