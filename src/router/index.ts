@@ -1,10 +1,9 @@
 import Home from "@/pages/home/Home.vue";
 import About from "@/pages/visitor/About.vue";
 import Contact from "@/pages/visitor/Contact.vue";
-import Design from "@/pages/visitor/Design.vue";
-import Godnews from "@/pages/visitor/Godnews.vue";
 import Layout from "@/pages/visitor/Layout.vue";
-import Projects from "@/pages/visitor/Projects.vue";
+import Godnews from "@/pages/visitor/projects/Godnews.vue";
+import Projects from "@/pages/visitor/projects/Projects.vue";
 
 import { createRouter, createWebHashHistory } from "vue-router";
 
@@ -26,20 +25,16 @@ export const router = createRouter({
           component: Layout,
           children: [
             {
-             path: '',
-            name: 'visitor-projects',
+            path: '',
+            name: 'project-general',
             component: Projects 
             },
             {
-             path: 'godnews!',
-            name: 'god-news!',
-            component: Godnews 
+            path: 'godnews!',
+            name: 'project-godnews!',
+            component: Godnews,
             },
-            {
-             path: ':id',
-            name: 'designs-details',
-            component: Design 
-            },
+            
           ]
         },
         {
@@ -48,7 +43,7 @@ export const router = createRouter({
           children: [
             {
              path: '',
-            name: 'visitor-about',
+            name: 'about',
             component: About 
             }
           ]
@@ -59,7 +54,7 @@ export const router = createRouter({
           children: [
             {
              path: '',
-            name: 'visitor-contact',
+            name: 'contact',
             component: Contact
             }
           ]
