@@ -1,5 +1,7 @@
 import Home from "@/pages/home/Home.vue";
 import About from "@/pages/visitor/About.vue";
+import Character from "@/pages/visitor/Character.vue";
+import Collection from "@/pages/visitor/Collection.vue";
 import Contact from "@/pages/visitor/Contact.vue";
 import Layout from "@/pages/visitor/Layout.vue";
 import Godnews from "@/pages/visitor/projects/Godnews.vue";
@@ -41,6 +43,22 @@ export const router = createRouter({
             component: Octubre,
             },
             
+          ]
+        },
+        {
+          path: 'character',
+          component: Layout,
+          children: [
+            {
+             path: '',
+            name: 'all-characters',
+            component: Collection 
+            },
+            {
+             path: ':id',
+            name: 'characters-details',
+            component: Character 
+            }
           ]
         },
         {
