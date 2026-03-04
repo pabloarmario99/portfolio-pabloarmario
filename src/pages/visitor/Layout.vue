@@ -15,7 +15,7 @@ import { Instagram } from 'lucide-vue-next';
         <header class="bg-[#000000] h-full text-white flex flex-col">
             <div class="flex flex-col gap-2 m-4">
                 <RouterLink to="/home">
-                    Home
+                    <img class="h-auto w-15 mb-2" src="/images/Argi_logo.png" alt="">
                 </RouterLink>
                 <Accordion type="single" collapsible class="w-full">
                     <AccordionItem value="item-1">

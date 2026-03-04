@@ -3,9 +3,9 @@
 </script>
 
 <template>
-    <div class="flex items-center gap-2 bg-black w-full">
-        <h1 class="font-bold text-white">Porfolio: Argi</h1>
-        <div class="flex gap-2">
+    <header class="flex flex-col items-center gap-2 bg-black w-full text-sm">
+        <h1 class="text-white font-medium mt-2 ">Porfolio: Argi</h1>
+        <div class="flex gap-2 font-light">
             <RouterLink to="/visitor/projects" class="bg-black text-white px-2 py-1 hover:bg-gray-900">
                 Proyectos
             </RouterLink>
@@ -22,10 +22,11 @@
             <RouterLink to="/visitor/contact" class="bg-black text-white px-2 py-1 hover:bg-gray-900">
                 Contacta
             </RouterLink>
-    
         </div>
-        
-    </div>
+    </header>
+    <main>
+        <img src="/images/ME_escena1.jpg" alt="">
+    </main>
 </template>
 
 <style scoped>
