@@ -17,21 +17,21 @@ export const allchara: Allchara[] = [
     id: 0,
     project: "God-News!",
     name: "Amaya",
-    image: "abe.png",
+    image: "GN_portadaAmaya.jpg",
     description: "Hola soy Amaya"
   },
   {
     id: 1,
     project: "God-News!",
     name: "Guardian",
-    image: "abe.png",
+    image: "GN_portadaGuardian.jpg",
     description: "Hola soy Guardian"
   },
   {
     id: 2,
     project: "Curso diseño personajes",
     name: "Jaime Comadreja",
-    image: "abe.png",
+    image: "JC_portada.jpg",
     description: "Me la pela todo"
   },
 
