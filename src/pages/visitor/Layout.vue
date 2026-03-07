@@ -119,7 +119,7 @@ onBeforeUnmount(() => {
         </header>
 
         <main class="min-w-0 min-h-screen">
-            <RouterView class="flex flex-col gap-1 ml-4"/>
+            <RouterView class="flex flex-col gap-1"/>
         </main>
     </div>
 </template>
