@@ -25,24 +25,33 @@ onBeforeUnmount(() => {
 <template>
     <header
     :class="[
-      'fixed top-0 left-0 w-full z-10 bg-black text-white  transition-all duration-100',
+      'fixed top-0 left-0 w-full z-10 bg-black text-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]',
       compactHeader ? 'pt-2' : 'pt-2'
     ]">
       
-        <div class="gap-2 flex flex-col items-center">
-            <h1 :class="compactHeader ? 'text-base' : 'text-2xl'" class="font-medium transition-all duration-100">
+        <div class="flex flex-col items-center transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
+            :class="compactHeader ? 'gap-0' : 'gap-2'"
+        >
+            <h1 :class="compactHeader ? 'text-base' : 'text-2xl'" class="font-medium transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]">
                 Porfolio: Argi
             </h1>
                 <img 
-                src="/images/Argi_logo.png"
-                v-if="!compactHeader" 
-                class="h-auto w-20 sm:w-25 transition-all slow-spin">
+                    src="/images/Argi_logo.png"
+                    :class="[
+                    'h-auto w-20 sm:w-25 slow-spin transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                    compactHeader ? 'opacity-0 scale-90 max-h-0 -translate-y-1 pointer-events-none' : 'opacity-100 scale-100 max-h-40 translate-y-0'
+                    ]"
+                />
             
-                <p v-if="!compactHeader" class="font-light text-xs flex justify-center lg:justify-start sm:text-sm text-gray-300 mt-1">
+                <p :class="[
+                    'font-light text-xs sm:text-sm text-gray-300 mt-1 overflow-hidden transition-all duration-200 delay-75 ease-[cubic-bezier(0.22,1,0.36,1)]',
+                    compactHeader ? 'opacity-0 max-h-0 -translate-y-1' : 'opacity-100 max-h-10 translate-y-0'
+                    ]"
+                >
                     Creación de historias, mundos y personajes
                 </p>
 
-                <nav class="flex gap-2 sm:gap-8 text-sm sm:text-base justify-center font-light transition-all">
+                <nav class="flex gap-2 sm:gap-8 text-sm sm:text-base justify-center font-light transition-all duration-200">
                     <RouterLink to="/visitor/projects" class="bg-black text-white px-2 py-1 pb-2 hover:bg-[#202020] rounded-t-sm">
                         Proyectos
                     </RouterLink>
@@ -59,7 +68,7 @@ onBeforeUnmount(() => {
         </div>
     </header>
 
-    <main :class="compactHeader ? 'pt-46 sm:pt-48' : 'pt-52 sm:pt-61'" class="transition-all duration-100 px-4">
+    <main :class="compactHeader ? 'pt-46 sm:pt-48' : 'pt-53 sm:pt-61'" class="transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] px-4">
         <section class="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:balance]">
             <img src="/images/ME_escena1.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
             <img src="/images/GN_portadaAmaya.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
