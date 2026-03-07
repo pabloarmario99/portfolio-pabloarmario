@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { Instagram } from 'lucide-vue-next';
 
 
 const compactHeader = ref(false);
@@ -60,15 +61,29 @@ onBeforeUnmount(() => {
 
     <main :class="compactHeader ? 'pt-46 sm:pt-48' : 'pt-52 sm:pt-61'" class="transition-all duration-100 px-4">
         <section class="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:balance]">
-        <img src="/images/ME_escena1.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
-        <img src="/images/GN_portadaAmaya.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
-        <img src="/images/GN_portadaGuardian.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
-        <img src="/images/JC_portada.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
-    </section>
+            <img src="/images/ME_escena1.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/GN_portadaAmaya.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/GN_portadaGuardian.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/JC_portada.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+        </section> 
     </main>
 
-    <footer>
-        Web de Pablo Armario Gil
+    <footer class="bg-black text-white w-full mt-4 p-7 ">
+        <div class="flex justify-between items-center">
+            <p class="text-xs font-light">
+                Pablo Armario Gil
+            </p>
+
+            <a 
+            href="https://www.instagram.com/argi14_art/"
+            class="hover:scale-105"
+            ><Instagram/></a>
+
+             <p class="text-xs font-light">
+                All rights reserved
+            </p>
+        </div>
+        
     </footer>
 </template>
 
