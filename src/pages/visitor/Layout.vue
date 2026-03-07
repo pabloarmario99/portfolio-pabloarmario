@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 
-import { Instagram } from 'lucide-vue-next';
+import { Instagram, CircleArrowLeft, CircleArrowRight} from 'lucide-vue-next';
 import { onBeforeUnmount, onMounted, ref } from 'vue';
 
 
@@ -40,15 +40,15 @@ onBeforeUnmount(() => {
 <template>
     <div class="grid grid-cols-[140px_1fr] min-h-screen font-sans">
         <button
-      class="sm:hidden fixed top-1/2 -translate-y-1/2 z-50 h-full p-3 bg-black/70 text-white transition-transform duration-90 ease-in-out "
-      :class="isSidebarOpen ? 'left-35' : 'left-0'"
+      class="sm:hidden fixed top-1/2 -translate-y-1/2 z-50 h-full p-3 text-black transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] "
+      :class="isSidebarOpen ? 'left-21 text-white'  : 'left-0'"
       @click="toggleSidebar"
       :aria-expanded="isSidebarOpen"
       aria-controls="visitor-sidebar"
       aria-label="Toggle sidebar"
     >
-      <ChevronLeft v-if="isSidebarOpen" class="w-5 h-5" />
-      <ChevronRight v-else class="w-5 h-5" />
+      <CircleArrowLeft v-if="isSidebarOpen" class="w-8 h-auto" />
+      <CircleArrowRight v-else class="w-8 h-auto" />
     </button>
 
     <div
@@ -59,14 +59,17 @@ onBeforeUnmount(() => {
 
         <header 
         id="visitor-sidebar"
-        class="bg-black/70 sm:bg-[#000000] text-white flex flex-col z-40 fixed top-0 left-0 h-screen w-35 transition-transform duration-100 ease-in-out sm:static sm:h-auto sm:translate-x-0"
+        class="bg-black/75 sm:bg-[#000000] text-white flex flex-col z-40 fixed top-0 left-0 h-screen w-35 transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] sm:static sm:h-auto sm:translate-x-0"
         :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'"
         >
             <div class="flex flex-col gap-2 m-4">
                 <RouterLink to="/home" @click="closeSidebar">
                     <img class="h-auto w-15 mb-2" src="/images/Argi_logo.png">
                 </RouterLink>
-                <Accordion type="single" collapsible class="w-full">
+                <RouterLink to="/visitor/projects" class="sm:hidden" @click="closeSidebar" active-class="font-bold">
+                                Proyectos
+                            </RouterLink>
+                <Accordion type="single" collapsible class="w-full hidden sm:block">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>
                             <RouterLink to="/visitor/projects" active-class="font-bold">
