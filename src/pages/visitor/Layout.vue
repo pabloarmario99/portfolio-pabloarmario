@@ -84,15 +84,6 @@ onBeforeUnmount(() => {
                             <RouterLink to="/visitor/projects/mindland" active-class="font-bold">
                                 Mindland
                             </RouterLink>
-                            <RouterLink to="/visitor/projects/kisslight" active-class="font-bold">
-                                Aurora & Claire
-                            </RouterLink>
-                            <RouterLink to="/visitor/projects/atalaya" active-class="font-bold">
-                                Atalaya
-                            </RouterLink>
-                            <RouterLink to="/visitor/projects/tamara" active-class="font-bold">
-                                Tamara
-                            </RouterLink>
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>

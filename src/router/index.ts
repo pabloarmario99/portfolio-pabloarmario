@@ -4,13 +4,10 @@ import Character from "@/pages/visitor/Character.vue";
 import Collection from "@/pages/visitor/Collection.vue";
 import Contact from "@/pages/visitor/Contact.vue";
 import Layout from "@/pages/visitor/Layout.vue";
-import Atalaya from "@/pages/visitor/projects/Atalaya.vue";
-import Aurora from "@/pages/visitor/projects/Aurora.vue";
 import Godnews from "@/pages/visitor/projects/Godnews.vue";
 import Jaime from "@/pages/visitor/projects/Jaime.vue";
 import Mindland from "@/pages/visitor/projects/Mindland.vue";
 import Projects from "@/pages/visitor/projects/Projects.vue";
-import Tamara from "@/pages/visitor/projects/Tamara.vue";
 
 import { createRouter, createWebHashHistory } from "vue-router";
 
@@ -51,22 +48,6 @@ export const router = createRouter({
             name: 'project-mindland',
             component: Mindland,
             },
-            {
-            path: 'kisslight',
-            name: 'project-kislight',
-            component: Aurora,
-            },
-            {
-            path: 'atalaya',
-            name: 'project-atalaya',
-            component: Atalaya,
-            },
-            {
-            path: 'tamara',
-            name: 'project-tamara',
-            component: Tamara,
-            },
-            
           ]
         },
         {
