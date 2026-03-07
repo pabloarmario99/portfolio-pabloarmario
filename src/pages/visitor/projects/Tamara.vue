@@ -3,8 +3,8 @@
 </script>
 
 <template>
-    <div class="m-2">
-<h1>29 de octubre</h1>
+    <div>
+<h1>Tamara</h1>
     </div>
 </template>
 
