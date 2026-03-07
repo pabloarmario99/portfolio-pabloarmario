@@ -24,10 +24,7 @@ onBeforeUnmount(() => {
 
 <template>
     <header
-    :class="[
-      'fixed top-0 left-0 w-full z-10 bg-black text-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]',
-      compactHeader ? 'pt-2' : 'pt-2'
-    ]">
+    class="fixed top-0 left-0 w-full z-10 bg-black text-white transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] pt-2">
       
         <div class="flex flex-col items-center transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)]"
             :class="compactHeader ? 'gap-0' : 'gap-2'"
@@ -95,7 +92,6 @@ onBeforeUnmount(() => {
         
     </footer>
 </template>
-
 <style scoped>
 .slow-spin {
   animation: slow-spin 12s linear infinite;
@@ -109,5 +105,4 @@ onBeforeUnmount(() => {
     transform: rotate(360deg);
   }
 }
-
 </style>

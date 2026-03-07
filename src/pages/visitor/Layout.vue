@@ -38,14 +38,11 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-    <div class="grid grid-cols-[140px_1fr] min-h-screen font-sans">
+    <div class="min-h-screen font-sans sm:pl-35">
         <button
       class="sm:hidden fixed top-1/2 -translate-y-1/2 z-50 h-full p-3 text-black transition-all duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] "
       :class="isSidebarOpen ? 'left-21 text-white'  : 'left-0'"
       @click="toggleSidebar"
-      :aria-expanded="isSidebarOpen"
-      aria-controls="visitor-sidebar"
-      aria-label="Toggle sidebar"
     >
       <CircleArrowLeft v-if="isSidebarOpen" class="w-8 h-auto" />
       <CircleArrowRight v-else class="w-8 h-auto" />
@@ -59,9 +56,10 @@ onBeforeUnmount(() => {
 
         <header 
         id="visitor-sidebar"
-        class="bg-black/75 sm:bg-[#000000] text-white flex flex-col z-40 fixed top-0 left-0 h-screen w-35 transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] sm:static sm:h-auto sm:translate-x-0"
-        :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'"
+        class="bg-black/75 sm:bg-[#000000] text-white flex flex-col z-40 fixed top-0 left-0 h-screen w-35 transition-transform duration-400 ease-[cubic-bezier(0.22,1,0.36,1)] sm:translate-x-0"
+        :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
         >
+            
             <div class="flex flex-col gap-2 m-4">
                 <RouterLink to="/home" @click="closeSidebar">
                     <img class="h-auto w-15 mb-2" src="/images/Argi_logo.png">
@@ -120,7 +118,7 @@ onBeforeUnmount(() => {
             </div>
         </header>
 
-        <main class="sm:ml-0" :class="isSidebarOpen ? 'ml-0' : 'ml-0'">
+        <main class="min-w-0 min-h-screen">
             <RouterView class="flex flex-col gap-1 ml-4"/>
         </main>
     </div>
