@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { allchara } from './data';
 import { router } from '@/router';
+import { ChevronLeft, ChevronRight } from 'lucide-vue-next';
 
 
 const inPagina = ref(1)
@@ -60,7 +61,19 @@ watch([inPagina, totalPaginae], () => {
             <p class="mb-4">Conoce más sobre ellos...</p>
         </header>
 
-        <main >
+        <main class="flex">
+             <button
+                @click="ireAdPaginam(nuncPagina - 1)"
+                :disabled="nuncPagina === 1"
+                :class="['px-4 py-2 transition-colors scale-110 hidden sm:block',
+                nuncPagina === 1
+                ?' text-[#b7bbd6] cursor-not-allowed'
+                :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
+                ]"
+            >
+                <ChevronLeft/>
+
+            </button>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
             <Card 
             class="cursor-pointer w-55 h-60 hover:bg-[#000000] hover:text-white transition-colors"
@@ -76,43 +89,52 @@ watch([inPagina, totalPaginae], () => {
                 </CardContent>
             </Card>
             </div>
+            <button
+                :disabled="nuncPagina === totalPaginae"
+                @click="ireAdPaginam(nuncPagina + 1)"
+                :class="['px-4 py-2 transition-colors scale-110 hidden sm:block',
+                nuncPagina === totalPaginae
+                ?' text-[#b7bbd6] cursor-not-allowed'
+                :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
+                ]"          >
+                <ChevronRight/>
+            </button>
             
         </main>
         <div class="flex items-center justify-center gap-2 mt-4">
             <button
                 @click="ireAdPaginam(nuncPagina - 1)"
                 :disabled="nuncPagina === 1"
-                :class="['px-4 py-2 rounded-md font-medium transition-colors',
+                :class="['px-4 py-2 transition-colors scale-110 sm:hidden',
                 nuncPagina === 1
-                ?'bg-gray-200 text-gray-400 cursor-not-allowed'
-                :'bg-[#b7bbd6] hover:bg-[#000000] hover:text-white'
+                ?' text-[#b7bbd6] cursor-not-allowed'
+                :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"
             >
-                Anterior
+                <ChevronLeft/>
             </button>
 
             <button
                 v-for="pagina in paginaNumeri"
                 :key="pagina"
                 @click="ireAdPaginam(pagina)"
-                :class="['w-10 h-10 rounded-md font-medium transition-colors',
+                :class="['w-2 h-5 sm:h-2 sm:my-5 rounded-3xl transition-all',
                     nuncPagina === pagina
                     ? 'bg-[#000000] text-white'
                     : 'bg-[#b7bbd6] hover:bg-[#000000] hover:text-white'
                 ]"
             >
-                {{ pagina }}
             </button>
 
             <button
                 :disabled="nuncPagina === totalPaginae"
                 @click="ireAdPaginam(nuncPagina + 1)"
-                :class="['px-4 py-2 rounded-md font-medium transition-colors',
+                :class="['px-4 py-2 transition-colors scale-110 sm:hidden',
                 nuncPagina === totalPaginae
-                ?'bg-gray-200 text-gray-400 cursor-not-allowed'
-                :'bg-[#b7bbd6] hover:bg-[#000000] hover:text-white'
-                ]"            >
-                Siguiente
+                ?' text-[#b7bbd6] cursor-not-allowed'
+                :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
+                ]"          >
+                <ChevronRight/>
             </button>
         </div>
     </div>
