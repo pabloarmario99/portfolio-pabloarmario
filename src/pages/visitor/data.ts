@@ -34,5 +34,33 @@ export const allchara: Allchara[] = [
     image: "JC_portada.jpg",
     description: "Me la pela todo"
   },
+  {
+    id: 3,
+    project: "Kisslight",
+    name: "Aurora",
+    image: "AC_diseñoAurora.jpg",
+    description: "Timida y ..."
+  },
+  {
+    id: 4,
+    project: "Kisslight",
+    name: "Claire",
+    image: "AC_diseñoClaire.jpg",
+    description: "Extrovertida y ..."
+  },
+  {
+    id: 5,
+    project: "Atalaya",
+    name: "Anne",
+    image: "ATY_diseñoAnne.jpg",
+    description: "Quisiera subir la torre"
+  },
+  {
+    id: 6,
+    project: "Atalaya",
+    name: "Hugo",
+    image: "ATY_diseñoHugo.jpg",
+    description: "Quisiera bajar la torre"
+  },
 
 ]
