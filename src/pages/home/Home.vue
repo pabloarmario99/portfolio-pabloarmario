@@ -65,12 +65,15 @@ onBeforeUnmount(() => {
         </div>
     </header>
 
-    <main :class="compactHeader ? 'pt-46 sm:pt-48' : 'pt-53 sm:pt-61'" class="transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] px-4">
+    <main :class="compactHeader ? 'pt-46 sm:pt-48' : 'pt-53 sm:pt-61'" class="transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] px-12 sm:px-4">
         <section class="columns-1 sm:columns-2 lg:columns-3 gap-4 [column-fill:balance]">
-            <img src="/images/ME_escena1.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
-            <img src="/images/GN_portadaAmaya.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
-            <img src="/images/GN_portadaGuardian.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
-            <img src="/images/JC_portada.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/ME_escena1.jpg" class="mb-7 sm:mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/IL_freedom.jpg" class="mb-7 sm:mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/GN_ilustracionAmaya.jpg" class="mb-7 sm:mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/JC_expresiones.jpg" class="mb-7 sm:mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/ME_escena5.jpg" class="mb-7 sm:mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+            <img src="/images/IL_estudioPose.jpg" class="mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
+
         </section> 
     </main>
 

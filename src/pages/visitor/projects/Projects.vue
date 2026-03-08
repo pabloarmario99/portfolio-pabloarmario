@@ -4,14 +4,14 @@
 
 <template>
     <div>
-        <header class="flex flex-col items-center pt-4 pb-4 gap-3">
+        <header class="flex flex-col items-center pt-4 gap-3">
             <h1 class="font-bold text-4xl">Proyectos</h1>
             <p>A un solo paso de entrar en un 
                 <span class="font-bold">mundo nuevo</span>
             </p>
         </header>
         <main>
-            <div class="flex flex-wrap justify-center columns-1 sm:columns-2 lg:columns-3 gap-8 mb-8 ">
+            <div class="flex flex-wrap justify-center columns-1 sm:columns-2 lg:columns-3 gap-3 mb-6 ">
                 <RouterLink to="/visitor/projects/godnews!" class="relative group overflow-hidden mt-4">
                     <img 
                     class="w-80 h-90 object-cover object-center transition-all duration-200 ease-out group-hover:scale-103" 
