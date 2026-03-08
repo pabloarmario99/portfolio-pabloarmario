@@ -97,7 +97,7 @@ watch([inPagina, totalPaginae], () => {
                         <div class="flex justify-center h-65 overflow-hidden">
                           <img
                             :src="`/images/${allchara.image}`"
-                            class="h-full object-cover object-top"
+                            class="h-100 object-cover object-top"
                           >
                         </div>
                         <h2 class="font-medium text-lg">{{ allchara.name }}</h2>

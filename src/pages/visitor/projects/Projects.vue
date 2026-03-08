@@ -23,7 +23,7 @@
                 </RouterLink>
                 <RouterLink to="/visitor/projects/jaime" class="relative group overflow-hidden mt-4">
                     <img 
-                    class="w-80 h-90 object-cover object-center transition-all duration-200 ease-out group-hover:scale-103" 
+                    class="w-80 h-90 object-cover object-top border-2 transition-all duration-200 ease-out group-hover:scale-103" 
                     src="/images/JC_portada.jpg">
                     <div class="absolute inset-0 bg-black/35 opacity-0 transition-opacity duration-200 group-hover:opacity-100"></div>
                     <div class="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-200 group-hover:opacity-100">

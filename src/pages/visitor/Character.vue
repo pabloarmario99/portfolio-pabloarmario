@@ -15,24 +15,28 @@ const character = ref<Allchara | undefined>(
 </script>
 
 <template>
-    <div v-if="character" class="flex flex-col lg:flex-row lg:justify-between md:items-center w-full max-w-350 md:mx-auto my-8 gap-8 px-5 md:px-20">
-        <div>
-            <h1 > 
+    <div >
+        <section v-if="character" class="flex px-5 py-15 gap-10">
+            <img 
+            :src="`/images//${character.image}`"
+            class="px-15 h-120 transition-transform duration-200 ease-out hover:scale-103"
+            @click="router.push('/visitor/character')"
+            />
+            <div class="flex flex-col gap-3">
+            <h1 class="font-bold text-3xl" > 
                 {{ character.name }}
             </h1>
-
-            <div >
-                <p class="descriptione">
-                {{ character.description }}                </p>
-                        
-                <div
-                    @click="router.push('/visitor/character')"
-                >
-                        <p class="quote"> {{ character.project }}</p>
-                </div>
+            <p class="descriptione" >
+                {{ character.description }}                
+                
+            </p >
+            <p class="quote"> {{ character.project }}</p>
             </div>
-        </div>
+            
+    
+        </section>
     </div>
+    
 </template>
 
 <style scoped>
