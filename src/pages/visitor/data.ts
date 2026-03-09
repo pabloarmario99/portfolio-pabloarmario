@@ -62,5 +62,12 @@ export const allchara: Allchara[] = [
     image: "ATY_hugo.png",
     description: "Él es un centinela al que han enviado a un poblado costero para protegerlo desde su Atalaya. El trabajo de vigilante puede llegar a ser algo aburrido, pero todo cambia el día que le llega una misteriosa carta. Desde entonces espera esas cartas que hacen el día más ameno."
   },
+  {
+    id: 7,
+    project: "Atalaya",
+    name: "Hugo",
+    image: "ATY_hugo.png",
+    description: "Él es un centinela al que han enviado a un poblado costero para protegerlo desde su Atalaya. El trabajo de vigilante puede llegar a ser algo aburrido, pero todo cambia el día que le llega una misteriosa carta. Desde entonces espera esas cartas que hacen el día más ameno."
+  },
 
 ]

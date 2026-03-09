@@ -48,17 +48,17 @@ onBeforeUnmount(() => {
                     Creación de historias, mundos y personajes
                 </p>
 
-                <nav class="flex gap-2 sm:gap-8 text-sm sm:text-base justify-center font-light transition-all duration-200">
-                    <RouterLink to="/visitor/projects" class="bg-black text-white px-2 py-1 pb-2 hover:bg-[#202020] rounded-t-sm">
+                <nav class="flex gap-2 sm:gap-8 text-sm sm:text-base justify-center transition-all duration-200">
+                    <RouterLink to="/visitor/projects" class="text-white px-2 py-1 pb-2 hover:underline hover:scale-105">
                         Proyectos
                     </RouterLink>
-                    <RouterLink to="/visitor/character" class="bg-black text-white px-2 py-1 pb-2 hover:bg-[#202020] rounded-t-sm">
+                    <RouterLink to="/visitor/character" class="text-white px-2 py-1 pb-2 hover:underline hover:scale-105">
                         Personajes
                     </RouterLink>
-                    <RouterLink to="/visitor/about" class="bg-black text-white px-2 py-1 pb-2 hover:bg-[#202020] rounded-t-sm">
+                    <RouterLink to="/visitor/about" class="text-white px-2 py-1 pb-2 hover:underline hover:scale-105">
                         Sobre mi
                     </RouterLink>
-                    <RouterLink to="/visitor/contact" class="bg-black text-white px-2 py-1 pb-2 hover:bg-[#202020] rounded-t-sm">
+                    <RouterLink to="/visitor/contact" class="text-white px-2 py-1 pb-2 hover:underline hover:scale-105">
                         Contacta
                     </RouterLink>
                 </nav>
@@ -108,4 +108,17 @@ onBeforeUnmount(() => {
     transform: rotate(360deg);
   }
 }
+.no-shift {
+  position: relative;
+  display: inline-block;
+}
+
+.no-shift::after {
+  content: attr(data-text);   
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  display: block;
+}
+
 </style>

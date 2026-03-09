@@ -60,43 +60,43 @@ onBeforeUnmount(() => {
         :class="isSidebarOpen ? 'translate-x-0' : '-translate-x-full'"
         >
             
-            <div class="flex flex-col gap-2 m-4">
-                <RouterLink to="/home" @click="closeSidebar">
-                    <img class="h-auto w-15 mb-2" src="/images/Argi_logo.png">
+            <div class="flex flex-col gap-2 p-5">
+                <RouterLink to="/home" >
+                    <img class="w-20 pb-4 transition-all hover:scale-105" src="/images/Argi_logo.png">
                 </RouterLink>
-                <RouterLink to="/visitor/projects" class="sm:hidden" @click="closeSidebar" active-class="font-bold">
+                <RouterLink to="/visitor/projects" class="sm:hidden" @click="closeSidebar" active-class="font-semibold underline">
                                 Proyectos
                             </RouterLink>
                 <Accordion type="single" collapsible class="w-full hidden sm:block">
                     <AccordionItem value="item-1">
-                        <AccordionTrigger>
-                            <RouterLink to="/visitor/projects" active-class="font-bold">
+                        <AccordionTrigger class="flex items-center gap-0">
+                            <RouterLink to="/visitor/projects" active-class="font-semibold underline">
                                 Proyectos
                             </RouterLink>
                         </AccordionTrigger>
-                        <AccordionContent class="flex flex-col gap-2">
-                            <RouterLink to="/visitor/projects/godnews!" active-class="font-bold">
+                        <AccordionContent class="flex flex-col gap-2 pl-2">
+                            <RouterLink to="/visitor/projects/godnews!" active-class="font-semibold underline">
                                 God News!
                             </RouterLink>
-                            <RouterLink to="/visitor/projects/jaime" active-class="font-bold">
+                            <RouterLink to="/visitor/projects/jaime" active-class="font-semibold underline">
                                 Jaime C.
                             </RouterLink>
-                            <RouterLink to="/visitor/projects/mindland" active-class="font-bold">
+                            <RouterLink to="/visitor/projects/mindland" active-class="font-semibold underline">
                                 Mindland
                             </RouterLink>
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
             
-                <RouterLink to="/visitor/character" active-class="font-bold" @click="closeSidebar">
+                <RouterLink to="/visitor/character" active-class="font-semibold underline" @click="closeSidebar">
                     Personajes
                 </RouterLink>
 
-                <RouterLink to="/visitor/about" active-class="font-bold" @click="closeSidebar">
+                <RouterLink to="/visitor/about" active-class="font-semibold underline" @click="closeSidebar">
                     Sobre mi
                 </RouterLink>
             
-                <RouterLink to="/visitor/contact" active-class="font-bold" @click="closeSidebar">
+                <RouterLink to="/visitor/contact" active-class="font-semibold underline" @click="closeSidebar">
                     Contacta
                 </RouterLink>
             </div>
