@@ -85,7 +85,7 @@ watch(nuncPagina, (page) => {
                 :disabled="nuncPagina === 1"
                 :class="['px-4 py-2 md:px-2 scale-110 hidden sm:block cursor-pointer',
                 nuncPagina === 1
-                ?' text-[#b7bbd6] cursor-default'
+                ?' text-[#b7bbd6] cursor-default!'
                 :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"
             >
@@ -131,7 +131,7 @@ watch(nuncPagina, (page) => {
                 @click="ireAdPaginam(nuncPagina + 1)"
                 :class="['px-4 py-2 mx-1 md:mx-2 transition-colors scale-110 hidden sm:block cursor-pointer',
                 nuncPagina === totalPaginae
-                ?' text-[#b7bbd6] cursor-default'
+                ?' text-[#b7bbd6] cursor-default!'
                 :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"          >
                 <ChevronRight/>
@@ -144,7 +144,7 @@ watch(nuncPagina, (page) => {
                 :disabled="nuncPagina === 1"
                 :class="['px-4 py-2 transition-colors scale-110 sm:hidden cursor-pointer',
                 nuncPagina === 1
-                ?' text-[#b7bbd6] cursor-default'
+                ?' text-[#b7bbd6] cursor-default!'
                 :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"
             >
@@ -168,7 +168,7 @@ watch(nuncPagina, (page) => {
                 @click="ireAdPaginam(nuncPagina + 1)"
                 :class="['px-4 py-2 transition-colors scale-110 sm:hidden cursor-pointer',
                 nuncPagina === totalPaginae
-                ?' text-[#b7bbd6] cursor-default'
+                ?' text-[#b7bbd6] cursor-default!'
                 :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"          >
                 <ChevronRight/>
