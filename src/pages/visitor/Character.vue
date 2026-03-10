@@ -9,18 +9,18 @@ const route = useRoute()
 const router = useRouter()
 
 const character = ref<Allchara | undefined>(
-    allchara.find(char => char.id === Number(route.params.id))
+  allchara.find(char => char.id === Number(route.params.id))
 )
 
 </script>
 
 <template>
     <div >
-        <section v-if="character" class="flex px-5 py-15 gap-10">
+        <section v-if="character" class="flex flex-col-reverse justify-center gap-10 pl-15 pr-5 pt-10 pb-5 md:flex-row sm:px-5 md:px-10 md:pt-15 md:gap-10 lg:px-20 transition-all">
             <img 
             :src="`/images//${character.image}`"
-            class="px-15 h-120 transition-transform duration-200 ease-out hover:scale-103"
-            @click="router.push('/visitor/character')"
+            class="h-120 w-auto object-contain  transition-all duration-200 ease-out hover:scale-103 hover:opacity-40"
+            @click="router.push({ path: '/visitor/character', query: { page: String(route.query.page ?? 1) } })"
             />
             <div class="flex flex-col gap-3">
             <h1 class="font-bold text-3xl" > 
@@ -30,12 +30,16 @@ const character = ref<Allchara | undefined>(
                 {{ character.description }}                
                 
             </p >
-            <p class="quote"> {{ character.project }}</p>
+            <p class="quote">Proyecto: {{ character.project }}</p>
             </div>
-            
-    
         </section>
+
+        <footer>
+            
+        </footer>
+
     </div>
+    
     
 </template>
 

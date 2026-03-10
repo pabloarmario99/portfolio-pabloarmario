@@ -2,12 +2,26 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue';
 import { allchara } from './data';
-import { router } from '@/router';
+import { useRoute, useRouter } from 'vue-router';
 import { ChevronLeft, ChevronRight } from 'lucide-vue-next';
+
+const route = useRoute();
+const router = useRouter();
+
+const getPageFromQuery = (value: unknown) => {
+  const n = Number(value);
+  return Number.isInteger(n) && n > 0 ? n : 1;
+};
 
 
 const inPagina = ref(1)
-const nuncPagina = ref(1)
+const nuncPagina = ref(getPageFromQuery(route.query.page))
+const isDragging = ref(false)
+const dragStartX = ref(0)
+const dragOffsetX = ref(0)
+const didDrag = ref(false)
+const dragThreshold = 60
+
 
 const totalPaginae = computed(() => 
 Math.ceil(allchara.length / inPagina.value)) 
@@ -41,15 +55,63 @@ const ireAdPaginam = (pagina: number) => {
 
 const paginaNumeri = computed(() => [...Array(totalPaginae.value)].map((_, i) => i + 1 )) 
 
+const onDragStart = (event: PointerEvent) => {
+  const target = event.currentTarget as HTMLElement | null
+  target?.setPointerCapture(event.pointerId)
+  isDragging.value = true
+  dragStartX.value = event.clientX
+  dragOffsetX.value = 0
+  didDrag.value = false
+}
+
+const onDragMove = (event: PointerEvent) => {
+  if (!isDragging.value) return
+  dragOffsetX.value = event.clientX - dragStartX.value
+  if (Math.abs(dragOffsetX.value) > 8) {
+    didDrag.value = true
+  }
+}
+
+const onDragEnd = () => {
+  if (!isDragging.value) return
+
+  if (dragOffsetX.value <= -dragThreshold && nuncPagina.value < totalPaginae.value) {
+    ireAdPaginam(nuncPagina.value + 1)
+  } else if (dragOffsetX.value >= dragThreshold && nuncPagina.value > 1) {
+    ireAdPaginam(nuncPagina.value - 1)
+  }
+
+  isDragging.value = false
+  dragOffsetX.value = 0
+}
+
+const preventImageDrag = (event: DragEvent) => {
+  event.preventDefault()
+}
+
+const onCardClick = (characterId: number) => {
+  if (didDrag.value) {
+    didDrag.value = false
+    return
+  }
+  router.push({ path: `/visitor/character/${characterId}`, query: { page: String(nuncPagina.value) } })
+}
+
 watch([inPagina, totalPaginae], () => {
   if (nuncPagina.value > totalPaginae.value) {
     nuncPagina.value = totalPaginae.value || 1
   }
 })
 
+watch(nuncPagina, (page) => {
+  router.replace({
+    query: {
+      ...route.query,
+      page: String(page),
+    },
+  });
+});
 </script>
-
-
 
 <template>
     <div class="w-full max-w-350 pt-11 md:pt-8 mx-auto transition-all">
@@ -74,10 +136,20 @@ watch([inPagina, totalPaginae], () => {
 
             </button>
             
-            <div class="w-full py-2 overflow-hidden">
+            <div
+              class="w-full py-2 overflow-hidden touch-pan-y"
+              @pointerdown="onDragStart"
+              @pointermove="onDragMove"
+              @pointerup="onDragEnd"
+              @pointercancel="onDragEnd"
+              @pointerleave="onDragEnd"
+            >
               <div
-                class="flex transition-transform duration-600 ease-in-out"
-                :style="{ transform: `translateX(-${(nuncPagina - 1) * 100}%)` }"
+                class="flex"
+                :style="{
+                  transform: `translateX(calc(-${(nuncPagina - 1) * 100}% + ${isDragging ? dragOffsetX : 0}px))`,
+                  transition: isDragging ? 'none' : 'transform 600ms ease-in-out'
+                }"
               >
                 <section
                   v-for="pagina in totalPaginae"
@@ -86,10 +158,10 @@ watch([inPagina, totalPaginae], () => {
                 >
                   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 justify-items-center">
                     <Card
-                      class="cursor-pointer w-60 h-80 transition-transform duration-200 ease-out hover:scale-103 hover:border hover:shadow"
+                      class="cursor-pointer w-60 h-80 transition-transform duration-200 ease-out hover:scale-110"
                       v-for="allchara in getItemsByPage(pagina)"
                       :key="allchara.id"
-                      @click="router.push(`/visitor/character/${ allchara.id }`)"
+                      @click="onCardClick(allchara.id)"
                     >
                       <CardContent
                         class="flex flex-col items-center gap-2 px-0"
@@ -97,7 +169,9 @@ watch([inPagina, totalPaginae], () => {
                         <div class="flex justify-center h-65 overflow-hidden">
                           <img
                             :src="`/images/${allchara.image}`"
-                            class="h-100 object-cover object-top"
+                            class="h-100 object-cover object-top select-none"
+                            draggable="false"
+                            @dragstart="preventImageDrag"
                           >
                         </div>
                         <h2 class="font-medium text-lg">{{ allchara.name }}</h2>
