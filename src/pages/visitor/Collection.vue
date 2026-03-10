@@ -16,11 +16,6 @@ const getPageFromQuery = (value: unknown) => {
 
 const inPagina = ref(1)
 const nuncPagina = ref(getPageFromQuery(route.query.page))
-const isDragging = ref(false)
-const dragStartX = ref(0)
-const dragOffsetX = ref(0)
-const didDrag = ref(false)
-const dragThreshold = 60
 
 
 const totalPaginae = computed(() => 
@@ -55,45 +50,7 @@ const ireAdPaginam = (pagina: number) => {
 
 const paginaNumeri = computed(() => [...Array(totalPaginae.value)].map((_, i) => i + 1 )) 
 
-const onDragStart = (event: PointerEvent) => {
-  const target = event.currentTarget as HTMLElement | null
-  target?.setPointerCapture(event.pointerId)
-  isDragging.value = true
-  dragStartX.value = event.clientX
-  dragOffsetX.value = 0
-  didDrag.value = false
-}
-
-const onDragMove = (event: PointerEvent) => {
-  if (!isDragging.value) return
-  dragOffsetX.value = event.clientX - dragStartX.value
-  if (Math.abs(dragOffsetX.value) > 8) {
-    didDrag.value = true
-  }
-}
-
-const onDragEnd = () => {
-  if (!isDragging.value) return
-
-  if (dragOffsetX.value <= -dragThreshold && nuncPagina.value < totalPaginae.value) {
-    ireAdPaginam(nuncPagina.value + 1)
-  } else if (dragOffsetX.value >= dragThreshold && nuncPagina.value > 1) {
-    ireAdPaginam(nuncPagina.value - 1)
-  }
-
-  isDragging.value = false
-  dragOffsetX.value = 0
-}
-
-const preventImageDrag = (event: DragEvent) => {
-  event.preventDefault()
-}
-
 const onCardClick = (characterId: number) => {
-  if (didDrag.value) {
-    didDrag.value = false
-    return
-  }
   router.push({ path: `/visitor/character/${characterId}`, query: { page: String(nuncPagina.value) } })
 }
 
@@ -126,9 +83,9 @@ watch(nuncPagina, (page) => {
              <button
                 @click="ireAdPaginam(nuncPagina - 1)"
                 :disabled="nuncPagina === 1"
-                :class="['px-4 py-2 md:px-2 scale-110 hidden sm:block',
+                :class="['px-4 py-2 md:px-2 scale-110 hidden sm:block cursor-pointer',
                 nuncPagina === 1
-                ?' text-[#b7bbd6] cursor-not-allowed'
+                ?' text-[#b7bbd6] cursor-default'
                 :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"
             >
@@ -136,20 +93,10 @@ watch(nuncPagina, (page) => {
 
             </button>
             
-            <div
-              class="w-full py-2 overflow-hidden touch-pan-y"
-              @pointerdown="onDragStart"
-              @pointermove="onDragMove"
-              @pointerup="onDragEnd"
-              @pointercancel="onDragEnd"
-              @pointerleave="onDragEnd"
-            >
+            <div class="w-full py-2 overflow-hidden">
               <div
-                class="flex"
-                :style="{
-                  transform: `translateX(calc(-${(nuncPagina - 1) * 100}% + ${isDragging ? dragOffsetX : 0}px))`,
-                  transition: isDragging ? 'none' : 'transform 600ms ease-in-out'
-                }"
+                class="flex transition-transform duration-600 ease-in-out"
+                :style="{ transform: `translateX(-${(nuncPagina - 1) * 100}%)` }"
               >
                 <section
                   v-for="pagina in totalPaginae"
@@ -169,9 +116,7 @@ watch(nuncPagina, (page) => {
                         <div class="flex justify-center h-65 overflow-hidden">
                           <img
                             :src="`/images/${allchara.image}`"
-                            class="h-100 object-cover object-top select-none"
-                            draggable="false"
-                            @dragstart="preventImageDrag"
+                            class="h-100 object-cover object-top"
                           >
                         </div>
                         <h2 class="font-medium text-lg">{{ allchara.name }}</h2>
@@ -184,9 +129,9 @@ watch(nuncPagina, (page) => {
             <button
                 :disabled="nuncPagina === totalPaginae"
                 @click="ireAdPaginam(nuncPagina + 1)"
-                :class="['px-4 py-2 mx-1 md:mx-2 transition-colors scale-110 hidden sm:block',
+                :class="['px-4 py-2 mx-1 md:mx-2 transition-colors scale-110 hidden sm:block cursor-pointer',
                 nuncPagina === totalPaginae
-                ?' text-[#b7bbd6] cursor-not-allowed'
+                ?' text-[#b7bbd6] cursor-default'
                 :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"          >
                 <ChevronRight/>
@@ -197,9 +142,9 @@ watch(nuncPagina, (page) => {
             <button
                 @click="ireAdPaginam(nuncPagina - 1)"
                 :disabled="nuncPagina === 1"
-                :class="['px-4 py-2 transition-colors scale-110 sm:hidden',
+                :class="['px-4 py-2 transition-colors scale-110 sm:hidden cursor-pointer',
                 nuncPagina === 1
-                ?' text-[#b7bbd6] cursor-not-allowed'
+                ?' text-[#b7bbd6] cursor-default'
                 :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"
             >
@@ -210,10 +155,10 @@ watch(nuncPagina, (page) => {
                 v-for="pagina in paginaNumeri"
                 :key="pagina"
                 @click="ireAdPaginam(pagina)"
-                :class="['w-2 h-5 sm:h-2 sm:my-5 rounded-3xl transition-all',
+                :class="['w-2 h-5 sm:h-2 sm:my-5 rounded-3xl transition-all cursor-pointer',
                     nuncPagina === pagina
-                    ? 'bg-[#000000] text-white'
-                    : 'bg-[#b7bbd6] hover:bg-[#000000] hover:text-white'
+                    ? 'bg-[#000000]'
+                    : 'bg-[#b7bbd6] hover:bg-[#000000]'
                 ]"
             >
             </button>
@@ -221,9 +166,9 @@ watch(nuncPagina, (page) => {
             <button
                 :disabled="nuncPagina === totalPaginae"
                 @click="ireAdPaginam(nuncPagina + 1)"
-                :class="['px-4 py-2 transition-colors scale-110 sm:hidden',
+                :class="['px-4 py-2 transition-colors scale-110 sm:hidden cursor-pointer',
                 nuncPagina === totalPaginae
-                ?' text-[#b7bbd6] cursor-not-allowed'
+                ?' text-[#b7bbd6] cursor-default'
                 :'text-black hover:transition-transform duration-200 ease-out hover:scale-125'
                 ]"          >
                 <ChevronRight/>
