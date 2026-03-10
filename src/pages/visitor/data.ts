@@ -21,8 +21,8 @@ export const allchara: Allchara[] = [
     image: "GN_amaya.png",
     ciao: "¿Ya te vas?",
     description: "Ella es una fracción reprimida que apenas conoce el exterior. Se le ha impedido salir y madurar por miedo a que su fuerza arrasara con todo. Por ello, ha aprendido a vivir feliz en su mundo interior, aunque albergue un gran anhelo de salir a los focos del escenario.",
-    image1: "GN_portadaAmaya",
-    image2: "GN_expresionesAmaya",
+    image1: "GN_portadaAmaya.jpg",
+    image2: "GN_expresionesAmaya.jpg",
     
   },
   {
@@ -32,8 +32,8 @@ export const allchara: Allchara[] = [
     image: "GN_guardian.png",
     ciao: "No dejaré que te vayas...",
     description: "Es una de las fracciones de personalidad más longevas que habitan el subconsciente. De hecho, es la primera en tomar conciencia de sí misma y la que, a día de hoy, orquesta al resto de las fracciones.",
-    image1: "GN_portadaGuardian",
-    image2: "GN_expresionesGuardian",
+    image1: "GN_portadaGuardian.jpg",
+    image2: "GN_expresionesGuardian.jpg",
   },
   {
     id: 2,
