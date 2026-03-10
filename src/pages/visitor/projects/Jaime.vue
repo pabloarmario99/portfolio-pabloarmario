@@ -3,9 +3,12 @@
 </script>
 
 <template>
-    <div class="p-4 gap-4">
-        <h1 class="font-bold text-3xl flex justify-center">Jaime Comadreja</h1>
-        <section class="columns-1 md:columns-2 lg:columns-3 gap-4 [column-fill:balance]">
+    <div>
+        <header class="flex flex-col items-center justify-center gap-5 p-7 pb-3">
+        <h1 class="font-bold text-2xl md:text-3xl ">Jaime Comadreja</h1>
+        <h2 class="text-justify">Jaime vive en un <span class="font-bold">barrio marginal</span> donde lo conocen como "Jaime Comadreja". Pertenece a uno de los siete clanes que se dedican al narcotráfico. Aunque entre bandas ocurren <span class="font-bold">disputas por territorios</span>, tienen un enemigo en común: La UCO (Unidad de crimen organizado). Esta entidad cuenta con la última tecnología en armamento y quiere acabar con su modo de vida. Por ello, <span class="font-bold">se ven obligados a crear sus propias armas</span> para defender aquello que les pertenece.</h2>
+    </header>
+        <section class="columns-1 lg:columns-2 gap-5 [column-fill:balance] p-5 pt-0">
             <img src="/images/JC_siluetas.jpg" class="mb-7 sm:mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
             <img src="/images/JC_valores.jpg" class="mb-7 sm:mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />
             <img src="/images/JC_color.jpg" class="mb-7 sm:mb-4 w-full h-auto break-inside-avoid transition-transform duration-200 ease-out hover:scale-103" />

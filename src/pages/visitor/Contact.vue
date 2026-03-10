@@ -36,7 +36,7 @@ const dies = ref<DateValue>()
 
     <div class="container mx-auto max-w-5xl px-4">
 
-      <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">Contacta</h2>
+      <h2 class="text-3xl font-bold text-black mb-8 text-center">Contacta</h2>
             
       <div class="flex flex-col lg:flex-row gap-8 items-center">
               <!-- Formulario -->

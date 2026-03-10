@@ -34,7 +34,7 @@ const character = ref<Allchara | undefined>(
             <h1 class="font-bold text-3xl" > 
                 {{ character.name }}
             </h1>
-            <p>
+            <p class="text-justify">
                 {{ character.description }}                
                 
             </p >
